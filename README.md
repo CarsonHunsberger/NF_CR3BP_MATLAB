@@ -36,6 +36,6 @@ For a higher-level view of the functionality offered, refer to the following dia
 
 ![Structure of normal form code](/NFStructure.png)
 
-All of the functions have explanatory comments, meaning that typing "help <function name>" in MATLAB's command line will provide additional details.
+All of the functions have explanatory comments, meaning that typing "help \<function name\>" in MATLAB's command line will provide additional details.
 
 
