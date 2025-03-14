@@ -27,6 +27,15 @@ To access the NF_CR3BP functions from other folders, right click on the "NF_CR3B
 
 All normal form approximations are of degree 11.
 
+## Getting Started
 
+Tutorial.m has been included to provide an introduction to all of the functions included in this project.  
+It is highly recommended to read through the comments and try running and fiddling with the examples.
+
+For a higher-level view of the functionality offered, refer to the following diagram.
+
+![Structure of normal form code](/NFStructure.png)
+
+All of the functions have explanatory comments, meaning that typing "help <function name>" in MATLAB's command line will provide additional details.
 
 
