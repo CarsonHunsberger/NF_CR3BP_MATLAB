@@ -57,7 +57,7 @@ if isempty(N) || flag == 1
     N = Nval;
 end
 if isempty(datacell) || flag == 1
-    digits(40);
+    % digits(40);
     if ispc
         slash = '\';
     else
