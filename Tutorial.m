@@ -257,7 +257,7 @@ format short;
   % accurate numerical transformation.
 
 
-AA0 = [0 0.8 0 0 0 0];
+AA0 = [0 0.8 0 0 pi/2 0];
 tspan = linspace(0,3,50);
 
 RTB = RTBprop(tspan,AAtoRTB(AA0,Lpt=1,nftype='Birkhoff',method='anl'));
