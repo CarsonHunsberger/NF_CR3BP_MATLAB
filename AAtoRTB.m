@@ -56,7 +56,7 @@ end
 flag = 0;
 if width == 6 && ~(len==6)
     flag = 1;
-    AA = AA';
+    AA = AA.';
     width = len;
 end
 RTB = zeros(width,6);

@@ -44,9 +44,9 @@ if width == 6 && ~(len==6)
 end
 AA = zeros(width,6);
 for n=1:width
-    AA(n,:) = tildetoAA(NF(:,n),isResonant)';
+    AA(n,:) = tildetoAA(NF(:,n),isResonant).';
 end
 if ~flag
-    AA = AA';
+    AA = AA.';
 end
 end

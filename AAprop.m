@@ -53,10 +53,13 @@ else
 end
 
 if isResonant
-    [~,AA] = ode113(@(t,x)resAApartials(x,data{nf}{Lpt}.AApartialscell),tspan,AA0,opts);
+    im = imag(AA0(4));
+    [~,AA] = ode113(@(t,x)resAApartials(x,data{nf}{Lpt}.AApartialscell),tspan,real(AA0),opts);
+    AA(:,4) = AA(:,4)+1i*im;
 else
     partials = partialfunc(AA0,data{nf}{Lpt}.AApartialscell);
     AA = partials'.*reshape(tspan,[length(tspan) 1])+reshape(AA0,[1 6]);
 end
+
 
 end

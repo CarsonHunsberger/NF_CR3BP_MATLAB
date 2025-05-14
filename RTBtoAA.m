@@ -74,15 +74,15 @@ numqp0toqpN = @(x)numqptransform(x,GenFuncEOMs,GenFuncEOMseval,-1,temparr,optsnu
 
 if strcmp(method,'num')
     for n=1:width
-        AA(n,:) = tildetoAA(numqp0toqpN(RTBtoqp(RTB(:,n),Cinv,T1inv,Vinv,aLpt,mu)),isResonant)';
+        AA(n,:) = tildetoAA(numqp0toqpN(RTBtoqp(RTB(:,n),Cinv,T1inv,Vinv,aLpt,mu)),isResonant).';
     end
 else
     for n=1:width
-        AA(n,:) = tildetoAA(sixdeval(RTBtoqp(RTB(:,n),Cinv,T1inv,Vinv,aLpt,mu),anlqp0toqpN),isResonant)';
+        AA(n,:) = tildetoAA(sixdeval(RTBtoqp(RTB(:,n),Cinv,T1inv,Vinv,aLpt,mu),anlqp0toqpN),isResonant).';
     end
 end
 if ~flag
-    AA = AA';
+    AA = AA.';
 end
 
 end
