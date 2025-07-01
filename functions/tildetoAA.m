@@ -5,7 +5,7 @@ AA = zeros(6,1);
 AA(1) = abs(tilde(1)*tilde(4));
 AA(2) = 0.5*(tilde(2)^2+tilde(5)^2);
 AA(3) = 0.5*(tilde(3)^2+tilde(6)^2);
-AA(4) = log(abs(tilde(1)/tilde(4)));
+AA(4) = 0.5*log(abs(tilde(1)/tilde(4)));
 
 if ~tilde(1) || ~tilde(4)
     AA(4) = 0;
