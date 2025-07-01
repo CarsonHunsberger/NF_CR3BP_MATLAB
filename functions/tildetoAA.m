@@ -23,8 +23,8 @@ else
     end
 end
 
-AA(5) = atan2(tilde(2),tilde(5));
-AA(6) = atan2(tilde(3),tilde(6));
+AA(5) = -atan2(tilde(5),tilde(2));
+AA(6) = -atan2(tilde(6),tilde(3));
 
 if isResonant
     AA(3) = AA(2)+AA(3);
