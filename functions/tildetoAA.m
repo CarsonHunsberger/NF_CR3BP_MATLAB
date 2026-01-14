@@ -23,8 +23,10 @@ else
     end
 end
 
-AA(5) = -atan2(tilde(5),tilde(2));
-AA(6) = -atan2(tilde(6),tilde(3));
+% AA(5) = -atan2(tilde(5),tilde(2)); %OLD
+% AA(6) = -atan2(tilde(6),tilde(3)); %OLD
+AA(5) = atan2(tilde(2),tilde(5)); %NEW
+AA(6) = atan2(tilde(3),tilde(6)); %NEW
 
 if isResonant
     AA(3) = AA(2)+AA(3);

@@ -257,7 +257,7 @@ format short;
   % accurate numerical transformation.
 
 
-AA0 = [0 0.8 0 0 -pi/2 0];
+AA0 = [0 0.8 0 0 0 0];
 tspan = linspace(0,3,50);
 
 RTB = RTBprop(tspan,AAtoRTB(AA0,Lpt=1,nftype='Birkhoff',method='anl'));
@@ -317,6 +317,45 @@ disp(AApartials(AAResonant,Lpt=2,nftype='Resonant'))
 
 disp(Heval(AABirkhoff,Lpt=2,nftype='Birkhoff'))
 disp(Heval(AAResonant,Lpt=2,nftype='Resonant'))
+
+%% Example: Finding a halo orbit
+%   The functions in this toolbox can be leveraged in a wide variety of
+%   ways, such as finding a halo orbit.
+% 
+%   The following few lines of code show how the AApartials function can be
+%   used to locate the the value of I2hat for which the derivative of
+%   theta2 is equal to zero for a fixed value of I3hat (aka a halo orbit).
+% 
+%   Feel free to chenge the libration point to L2 or flip the sign of
+%   theta2 to get a halo orbit from a different family (northern/southern)!
+% 
+%   Note: This approach does not work with the Birkhoff normal form.
+
+Lpt = 2;
+nftype = 'Resonant';
+
+AA0 = [0;0.22;0.3;0;pi/2;0];
+
+func = @(x)[0 0 0 0 1 0]*AApartials([0; x; AA0(3); 0; AA0(5); ...
+    0],Lpt=Lpt,nftype=nftype);
+
+options = optimset('TolX',1e-30);
+I2 = fzero(func,AA0(2),options);
+
+AA0(2) = I2;
+
+% Neat trick: use AA partials to find the period of the halo orbit!
+partials = AApartials(AA0,Lpt=Lpt,nftype=nftype);
+T = 2*pi/partials(6);
+
+tspan = linspace(0,T,100);
+AA = AAprop(tspan,AA0,Lpt=Lpt,nftype=nftype);
+
+RTB = AAtoRTB(AA,Lpt=Lpt,nftype=nftype);
+
+figure; plot3(RTB(:,1),RTB(:,2),RTB(:,3),LineWidth=0.5);
+grid on; axis equal;
+xlabel('x [DU]'); ylabel('y [DU]'); zlabel('z [DU]');
 
 
 

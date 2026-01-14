@@ -11,12 +11,16 @@ end
 
 tilde(1) = sqrt(AA(1))*exp(real(AA(4)));
 
-tilde(2) = sqrt(2*AA(2))*cos(AA(5));
-tilde(3) = sqrt(2*AA(3))*cos(AA(6));
+% tilde(2) = sqrt(2*AA(2))*cos(AA(5)); %OLD
+% tilde(3) = sqrt(2*AA(3))*cos(AA(6)); %OLD
+tilde(2) = -sqrt(2*AA(2))*sin(AA(5)); %NEW
+tilde(3) = sqrt(2*AA(3))*sin(AA(6)); %NEW
 tilde(4) = sqrt(AA(1))*exp(-real(AA(4)));
 
-tilde(5) = -sqrt(2*AA(2))*sin(AA(5));
-tilde(6) = -sqrt(2*AA(3))*sin(AA(6));
+% tilde(5) = -sqrt(2*AA(2))*sin(AA(5)); %OLD
+% tilde(6) = -sqrt(2*AA(3))*sin(AA(6)); %OLD
+tilde(5) = -sqrt(2*AA(2))*cos(AA(5)); %NEW
+tilde(6) = sqrt(2*AA(3))*cos(AA(6)); %NEW
 temp = imag(AA(4));
 switch temp
     case 0.5*pi
